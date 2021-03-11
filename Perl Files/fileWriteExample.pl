@@ -27,6 +27,7 @@ print("copying content from $src to $des\n");
 while(<SRC>){
    print DES $_;	
 }
+print DES "\n\nAdditional line!";
 
 # always close the filehandles
 close(SRC);
