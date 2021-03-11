@@ -457,3 +457,73 @@ $ages[2] = 40
 $names[0] = John Paul
 $names[1] = Lisa
 $names[2] = Kumar
+
+
+********** File Handling **************************************
+https://www.perltutorial.org/perl-open-file/
+
+Summary: in this tutorial, you will learn how to open the file in Perl using the open() function. We are going to show 
+		you how to open the file for reading and writing with error handling.
+
+Perl filehandle
+	A filehandle is a variable that associates with a file. Through a filehandle variable, you can read from the file 
+	or write to the file depending on how you open the file.
+
+Perl open file function
+	You use open() function to open files. The open() function has three arguments:
+
+	Filehandle that associates with the file
+	Mode: you can open a file for reading, writing or appending.
+	Filename: the path to the file that is being opened.
+ 
+ 	open(filehandle,mode,filename)
+ 	
+	mode	operand
+	read	<
+	write	>
+	append	>>
+
+The open file modes are explained in details as follows:
+
+	Read mode (<): you only can read the file but cannot change its content.
+
+	Write mode (>): If the file does not exist, a new file is created. If the file already exists, the content 
+	of the file is wipe out, therefore, you should use the write mode with extra cautious.
+
+	Append mode ( >>): as its name implied, you can open the file for appending new content to the existing 
+	content of the file. However, you cannot change the existing content in the file.
+
+The following example demonstrates how to open the c:\temp\test.txt file for reading using the open() function.
+
+	 open(FH, '<', 'c:\temp\test.txt');
+
+The open file returns true on success and false on failure. You can use the die() function to handle a file-opening 
+failure. See the below example:
+
+	 open(FH, '<', 'c:\temp\test.txt') or die $!;
+	 
+After processing the file such as reading or writing, you should always close it explicitly by using the close() function. 
+If you don’t, Perl will automatically close the file for you, however, it is not a good programming practice. 
+The filehandle should always be closed explicitly.
+
+Perl File Read ******************************************
+
+Summary: in this tutorial, you will learn how to read a file in scalar context and read the file using diamond 
+		operator (<>).
+		Please follow the open file tutorial before going forward with this tutorial. If you want to write to a file,
+		check it out Perl writing to file tutorial.
+
+	Perl read file in scalar context
+	In order to read from a file in read mode, you put the filehandle variable inside angle brackets as follows:
+
+	 <FH>
+	
+	To read the next line of the file with newline included, you use the following syntax:
+	
+	$line = <FH>;
+	
+	You can use the Perl while loop to read a file line by line to the end of the file:
+
+	 while(<FH>){
+    	#...
+		}

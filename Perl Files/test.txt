@@ -1,0 +1,6 @@
+File Open Modes:
+
+mode	operand
+read	<
+write	>
+append	>>
